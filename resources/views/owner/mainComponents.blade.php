@@ -49,9 +49,6 @@
 <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> -->
 
-<!-- Include Google Maps JS API -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL0mf-wYCEO4N6xNkiJaau55bfRxdB4yk&libraries=places"></script>
-
 
 </head>
 
@@ -860,42 +857,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     </script> -->
 
-<!-- Google Maps -->
-<script>
-    let map;
-    let marker;
-    let geocoder;
 
-    function initMap() {
-        const initialLocation = { lat: 24.7136, lng: 46.6753 }; // Default location (Riyadh, Saudi Arabia)
-
-        // Initialize the map
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: initialLocation,
-            zoom: 10
-        });
-
-        // Initialize the geocoder for reverse geocoding
-        geocoder = new google.maps.Geocoder();
-
-        // Add a click event listener on the map
-        map.addListener('click', (event) => {
-            const clickedLocation = event.latLng;
-
-            // Place a marker at the clicked location
-            if (marker) {
-                marker.setPosition(clickedLocation);
-            } else {
-                marker = new google.maps.Marker({
-                    position: clickedLocation,
-                    map: map
-                });
-            }
-
-            // Get the address of the clicked location
-            geocodeLatLng(clickedLocation);
-        });
-    }
 
     // Function to get the address from the clicked location
     function geocodeLatLng(location) {
